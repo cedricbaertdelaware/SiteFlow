@@ -4,23 +4,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F5F7FA">
 <title>SiteFlow — Beheerplatform</title>
 
 <style>
 :root {
-  --bg: #f6f7f9;
-  --surface: #fff;
-  --text: #252d3a;
-  --muted: #8590a0;
-  --border: #e6e9ef;
-  --accent: #343e4e;
-  --accent-soft: #eef0f3;
-  --shadow: 0 2px 12px rgba(26,36,52,.035);
-  --blue: #6486c7;
-  --purple: #b08ad5;
-  --orange: #e8aa66;
-  --teal: #65b5ab;
-  --coral: #e17d89;
+  --bg: #F5F7FA;
+  --surface: #FFFFFF;
+  --surface-2: #EEF2F7;
+  --border: #E1E7EF;
+  --text: #0F1A2A;
+  --muted: #5B6B82;
+  --accent: #16A394;
+  --accent-2: #2563EB;
+  --accent-soft: rgba(22,163,148,.12);
+  --shadow: 0 1px 2px rgba(15,26,42,.04),
+            0 8px 24px -12px rgba(15,26,42,.14);
+  --blue: #6486C7;
+  --purple: #B08AD5;
+  --orange: #E8AA66;
+  --teal: #65B5AB;
+  --coral: #E17D89;
 }
 
 * { box-sizing: border-box; }
@@ -29,8 +33,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 14px/1.5 Inter, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font: 14px/1.5 Inter,-apple-system,
+    BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
 button, input, select, textarea { font: inherit; }
@@ -63,7 +67,7 @@ button { cursor: pointer; }
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: var(--accent);
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
   color: white;
   font-size: 20px;
 }
@@ -75,16 +79,19 @@ nav button {
   border: 0;
   text-align: left;
   background: transparent;
-  color: #66768c;
+  color: var(--muted);
   padding: 12px 15px;
   border-radius: 10px;
   font-weight: 600;
 }
 
-nav button:hover { background: #f3f4f6; }
+nav button:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
 
 nav button.active {
-  color: var(--text);
+  color: var(--accent);
   background: var(--accent-soft);
 }
 
@@ -118,7 +125,7 @@ nav button.active {
   height: 37px;
   display: grid;
   place-items: center;
-  background: #e9edf2;
+  background: var(--accent-soft);
   color: var(--accent);
   border-radius: 50%;
   font-weight: 800;
@@ -132,11 +139,7 @@ h1 {
 
 h2 { font-size: 16px; margin: 0; }
 
-.subtitle {
-  color: var(--muted);
-  margin: 0 0 27px;
-}
-
+.subtitle { color: var(--muted); margin: 0 0 27px; }
 .page { display: none; }
 .page.active { display: block; }
 
@@ -193,11 +196,11 @@ h2 { font-size: 16px; margin: 0; }
   font-weight: 650;
 }
 
-.btn:hover { filter: brightness(.95); }
+.btn:hover { filter: brightness(.94); }
 
 .btn.secondary {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--surface-2);
+  color: var(--text);
 }
 
 .btn.danger {
@@ -205,10 +208,7 @@ h2 { font-size: 16px; margin: 0; }
   color: #b3423b;
 }
 
-.btn.small {
-  padding: 6px 10px;
-  font-size: 12px;
-}
+.btn.small { padding: 6px 10px; font-size: 12px; }
 
 .row {
   padding: 14px 0;
@@ -227,20 +227,20 @@ h2 { font-size: 16px; margin: 0; }
   display: inline-block;
   border-radius: 20px;
   padding: 5px 10px;
-  background: #eef0f3;
-  color: #556172;
+  background: var(--accent-soft);
+  color: #128578;
   font-size: 11px;
   font-weight: 700;
 }
 
 .badge.warning {
-  background: #f4f1eb;
-  color: #8d7862;
+  background: rgba(245,158,11,.14);
+  color: #B47712;
 }
 
 .badge.gray {
-  background: #f1f2f4;
-  color: #8590a0;
+  background: var(--surface-2);
+  color: var(--muted);
 }
 
 table { border-collapse: collapse; width: 100%; }
@@ -256,7 +256,7 @@ th {
 
 td {
   padding: 15px 10px;
-  border-bottom: 1px solid #eff2f6;
+  border-bottom: 1px solid var(--border);
   font-size: 13px;
 }
 
@@ -271,22 +271,22 @@ tr:last-child td { border-bottom: none; }
 
 input, select, textarea {
   padding: 11px 12px;
-  border: 1px solid #dfe6ef;
+  border: 1px solid var(--border);
   border-radius: 9px;
-  background: white;
+  background: var(--surface);
   color: var(--text);
   width: 100%;
 }
 
 input:focus, textarea:focus, select:focus {
-  outline: 2px solid #aab3c0;
+  outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
 
 label {
   display: block;
   font-size: 12px;
-  color: #64748b;
+  color: var(--muted);
   margin-bottom: 5px;
 }
 
@@ -307,7 +307,8 @@ textarea { min-height: 85px; resize: vertical; }
   gap: 7px;
 }
 
-/* Colored charts, neutral application */
+/* CHARTS */
+
 .bars {
   height: 180px;
   display: flex;
@@ -336,6 +337,8 @@ textarea { min-height: 85px; resize: vertical; }
   font-size: 10px;
 }
 
+/* MODALS */
+
 .modal-bg {
   position: fixed;
   inset: 0;
@@ -349,7 +352,7 @@ textarea { min-height: 85px; resize: vertical; }
 .modal-bg.show { display: grid; }
 
 .modal {
-  background: white;
+  background: var(--surface);
   border-radius: 17px;
   width: min(580px,100%);
   max-height: 90vh;
@@ -373,8 +376,8 @@ textarea { min-height: 85px; resize: vertical; }
 }
 
 .notice {
-  background: #f3f5f7;
-  color: #586476;
+  background: var(--surface-2);
+  color: var(--muted);
   padding: 15px;
   border-radius: 10px;
   font-size: 13px;
@@ -817,7 +820,7 @@ function renderSites() {
     : '<tr><td colspan="5" class="empty">Geen websites gevonden</td></tr>';
 }
 
-/* Colored graphs */
+/* COLORFUL CHARTS */
 
 function chart(elementId) {
   const colors = [
